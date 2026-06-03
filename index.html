@@ -32,13 +32,7 @@
       background:
         linear-gradient(180deg, rgba(0, 127, 143, .08), transparent 32rem),
         var(--paper);
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      overflow-x: hidden;
     }
 
     a {
@@ -61,9 +55,11 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(12, 24, 33, .78), rgba(12, 24, 33, .28) 52%, rgba(12, 24, 33, .58)),
-        url("assets/pdf-images/p01-01.jpg") center / cover;
-      transform: scale(1.02);
+        linear-gradient(90deg, rgba(12, 24, 33, .78), rgba(12, 24, 33, .18) 52%, rgba(12, 24, 33, .50)),
+        radial-gradient(circle at 72% 22%, rgba(255, 255, 255, .9) 0 5%, transparent 6%),
+        linear-gradient(132deg, transparent 0 52%, rgba(247, 217, 151, .95) 52% 72%, transparent 72%),
+        repeating-linear-gradient(168deg, rgba(255, 255, 255, .38) 0 10px, transparent 10px 38px),
+        linear-gradient(135deg, #10a8b6 0%, #006b86 48%, #f7d997 49%, #f2b66b 100%);
     }
 
     .hero-inner {
@@ -85,7 +81,7 @@
     h1 {
       margin: 0;
       max-width: 760px;
-      font-size: clamp(3rem, 9vw, 7.4rem);
+      font-size: 6.4rem;
       line-height: .88;
       letter-spacing: 0;
     }
@@ -93,7 +89,7 @@
     .hero-copy {
       max-width: 620px;
       margin: 22px 0 0;
-      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-size: 1.25rem;
       line-height: 1.45;
       color: rgba(255, 255, 255, .88);
     }
@@ -144,7 +140,7 @@
 
     h2 {
       margin: 0;
-      font-size: clamp(2rem, 5vw, 4.4rem);
+      font-size: 3.7rem;
       line-height: .94;
       letter-spacing: 0;
     }
@@ -166,7 +162,7 @@
     .quote-band p {
       width: min(900px, 100%);
       margin: 0 auto;
-      font-size: clamp(2rem, 5vw, 5rem);
+      font-size: 4rem;
       line-height: .98;
       font-weight: 900;
       letter-spacing: 0;
@@ -193,6 +189,52 @@
 
     .flight-hero {
       min-height: 390px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 76% 18%, rgba(255, 255, 255, .95) 0 8%, transparent 9%),
+        linear-gradient(180deg, #83d3ee 0%, #dff6ff 58%, #f8d79b 59%, #e7ae61 100%);
+    }
+
+    .flight-hero::before {
+      content: "";
+      position: absolute;
+      width: 74%;
+      height: 34%;
+      border-radius: 52% 48% 46% 54%;
+      background: white;
+      box-shadow: inset -28px -14px 0 rgba(0, 127, 143, .12);
+      transform: rotate(-8deg);
+    }
+
+    .flight-hero::after {
+      content: "";
+      position: absolute;
+      width: 46%;
+      height: 9%;
+      border-radius: 999px;
+      background: var(--coral);
+      transform: translate(-5%, 95%) rotate(-8deg);
+      box-shadow:
+        110px -76px 0 -16px white,
+        -108px -72px 0 -19px white,
+        104px 0 0 -20px var(--sea);
+    }
+
+    .visual-label {
+      position: relative;
+      z-index: 1;
+      align-self: end;
+      justify-self: start;
+      margin: 22px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: white;
+      background: rgba(23, 33, 43, .72);
+      font-weight: 850;
+      font-size: .88rem;
     }
 
     .route {
@@ -209,7 +251,7 @@
     }
 
     .airport {
-      font-size: clamp(2rem, 5vw, 4.1rem);
+      font-size: 3.4rem;
       font-weight: 950;
       line-height: .9;
     }
@@ -282,15 +324,84 @@
 
     .day-media {
       min-height: 360px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 2px;
-      background: var(--line);
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 26% 22%, rgba(255, 255, 255, .78) 0 6%, transparent 7%),
+        linear-gradient(145deg, #0e9cad 0 42%, #f6d59b 43% 62%, #c89b5f 63% 100%);
     }
 
-    .day-media img:first-child {
-      grid-row: span 2;
+    .day-media::before {
+      content: "";
+      position: absolute;
+      inset: 16% 30% 12% 32%;
+      border-radius: 54% 46% 58% 42% / 34% 62% 38% 66%;
+      background:
+        radial-gradient(circle at 52% 32%, var(--coral) 0 6px, transparent 7px),
+        radial-gradient(circle at 38% 52%, var(--lime) 0 5px, transparent 6px),
+        radial-gradient(circle at 56% 68%, #f6d59b 0 6px, transparent 7px),
+        linear-gradient(150deg, #d9a86d, #9f7246);
+      box-shadow: 0 18px 38px rgba(23, 33, 43, .22);
+      transform: rotate(8deg);
+    }
+
+    .day-media::after {
+      content: "";
+      position: absolute;
+      inset: 22% 41% 20% 45%;
+      border-left: 5px solid white;
+      border-bottom: 5px solid white;
+      border-radius: 50%;
+      transform: rotate(-18deg);
+      opacity: .92;
+    }
+
+    .day-media .media-icon {
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      z-index: 1;
+      width: 74px;
+      height: 74px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ink);
+      background: rgba(255, 255, 255, .9);
+      border: 1px solid rgba(255, 255, 255, .7);
+      font-size: 2rem;
+      font-weight: 900;
+      box-shadow: 0 14px 28px rgba(23, 33, 43, .18);
+    }
+
+    .day-media.coast {
+      background:
+        radial-gradient(circle at 18% 20%, rgba(255, 255, 255, .78) 0 6%, transparent 7%),
+        linear-gradient(130deg, #0b8fac 0 47%, #f7dfb0 48% 66%, #b77b4d 67% 100%);
+    }
+
+    .day-media.mountains {
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, .58) 0 8%, transparent 9%),
+        linear-gradient(130deg, #79c7c8 0 35%, #c2a06a 36% 66%, #7f6042 67% 100%);
+    }
+
+    .day-media.caves {
+      background:
+        radial-gradient(circle at 74% 18%, rgba(255, 255, 255, .82) 0 6%, transparent 7%),
+        linear-gradient(140deg, #087f90 0 38%, #edc987 39% 58%, #6f523d 59% 100%);
+    }
+
+    .day-media.south {
+      background:
+        radial-gradient(circle at 18% 24%, rgba(255, 255, 255, .82) 0 6%, transparent 7%),
+        linear-gradient(142deg, #0b7596 0 48%, #f8dc9f 49% 72%, #a6754c 73% 100%);
+    }
+
+    .day-media.sunset {
+      background:
+        radial-gradient(circle at 74% 30%, #ffd06f 0 9%, transparent 10%),
+        linear-gradient(150deg, #1b758e 0 42%, #d78c66 43% 62%, #70523d 63% 100%);
     }
 
     .day-body {
@@ -311,7 +422,7 @@
 
     .day-heading h3 {
       margin: 0;
-      font-size: clamp(1.6rem, 3vw, 2.55rem);
+      font-size: 2.25rem;
       line-height: 1;
       letter-spacing: 0;
     }
@@ -383,9 +494,13 @@
       background: var(--ink);
     }
 
-    .option img {
+    .option::before {
+      content: "";
       position: absolute;
       inset: 0;
+      background:
+        radial-gradient(circle at 72% 24%, rgba(255, 255, 255, .85) 0 7%, transparent 8%),
+        linear-gradient(140deg, #0c8ea1 0 48%, #f6d597 49% 64%, #9f6f47 65% 100%);
     }
 
     .option::after {
@@ -393,6 +508,27 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(180deg, rgba(10, 22, 30, .12), rgba(10, 22, 30, .78));
+    }
+
+    .option.lobos::before {
+      background:
+        radial-gradient(circle at 50% 44%, #eac17d 0 15%, transparent 16%),
+        radial-gradient(circle at 60% 40%, #9c6b43 0 8%, transparent 9%),
+        linear-gradient(160deg, #0b99ab 0%, #24bfd0 58%, #f8dfae 59% 100%);
+    }
+
+    .option.lanzarote::before {
+      background:
+        linear-gradient(150deg, transparent 0 45%, #242327 46% 56%, transparent 57%),
+        radial-gradient(circle at 28% 34%, #d96c4c 0 10%, transparent 11%),
+        linear-gradient(150deg, #17889a 0 42%, #b56f4b 43% 72%, #513f34 73% 100%);
+    }
+
+    .option.tindaya::before {
+      background:
+        radial-gradient(circle at 74% 22%, #ffe08c 0 9%, transparent 10%),
+        linear-gradient(145deg, transparent 0 50%, #8e6a49 51% 70%, transparent 71%),
+        linear-gradient(150deg, #4aa3ae 0 34%, #e8c084 35% 64%, #b27a4d 65% 100%);
     }
 
     .option div {
@@ -422,8 +558,9 @@
       align-items: center;
       color: white;
       background:
-        linear-gradient(90deg, rgba(14, 27, 35, .72), rgba(14, 27, 35, .28)),
-        url("assets/pdf-images/p12-01.png") center / cover;
+        linear-gradient(90deg, rgba(14, 27, 35, .72), rgba(14, 27, 35, .18)),
+        radial-gradient(circle at 74% 22%, rgba(255, 255, 255, .86) 0 6%, transparent 7%),
+        linear-gradient(130deg, #0b93a5 0 48%, #f8dca2 49% 70%, #efb36d 71% 100%);
     }
 
     .ending div {
@@ -433,7 +570,7 @@
 
     .ending h2 {
       max-width: 760px;
-      font-size: clamp(3rem, 8vw, 7rem);
+      font-size: 5.8rem;
     }
 
     .ending p {
@@ -445,7 +582,28 @@
     }
 
     @media (max-width: 880px) {
+      .hero {
+        min-height: 78svh;
+      }
+
+      .hero-inner {
+        width: min(100% - 28px, 720px);
+      }
+
+      h1 {
+        font-size: 4.6rem;
+      }
+
+      h2 {
+        font-size: 2.75rem;
+      }
+
+      .quote-band p {
+        font-size: 2.8rem;
+      }
+
       .section {
+        width: min(100% - 28px, 720px);
         padding: 48px 0;
       }
 
@@ -468,38 +626,249 @@
       .facts {
         grid-template-columns: 1fr;
       }
+
+      .airport {
+        font-size: 2.75rem;
+      }
+
+      .day-heading h3 {
+        font-size: 2rem;
+      }
+
+      .option {
+        min-height: 300px;
+      }
+
+      .ending {
+        min-height: 58svh;
+      }
+
+      .ending h2 {
+        font-size: 4.2rem;
+      }
     }
 
     @media (max-width: 560px) {
+      .hero {
+        min-height: 68svh;
+      }
+
       .hero-inner {
-        padding-bottom: 58px;
+        width: min(100% - 24px, 420px);
+        padding: 24px 0 42px;
+      }
+
+      .eyebrow {
+        margin-bottom: 12px;
+        font-size: .76rem;
+        letter-spacing: .06em;
+      }
+
+      h1 {
+        max-width: 330px;
+        font-size: 3.25rem;
+        line-height: .92;
+      }
+
+      .hero-copy {
+        margin-top: 16px;
+        max-width: 330px;
+        font-size: 1rem;
+      }
+
+      .quickbar nav {
+        width: 100%;
+        min-height: 54px;
+        padding: 0 12px;
+        gap: 8px;
+        scrollbar-width: none;
+      }
+
+      .quickbar nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .quickbar a {
+        padding: 8px 11px;
+        font-size: .84rem;
+      }
+
+      .quote-band {
+        padding: 44px 14px;
+      }
+
+      .quote-band p {
+        font-size: 2rem;
+        line-height: 1.05;
+      }
+
+      .section {
+        width: min(100% - 24px, 420px);
+        padding: 38px 0;
+      }
+
+      .section-title {
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      h2 {
+        font-size: 2.08rem;
+        line-height: 1;
+      }
+
+      .section-title p {
+        font-size: .96rem;
       }
 
       .panel-content,
       .day-body {
-        padding: 20px;
+        padding: 18px;
+      }
+
+      .flight-hero {
+        min-height: 220px;
       }
 
       .route {
         grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 16px 0;
       }
 
       .plane-line {
         width: 100%;
       }
 
+      .airport {
+        font-size: 2.35rem;
+      }
+
+      .time {
+        font-size: 1rem;
+      }
+
+      .facts {
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .fact {
+        padding: 13px;
+      }
+
+      .day-media {
+        min-height: 210px;
+      }
+
+      .day-media::before {
+        inset: 13% 28% 10% 28%;
+      }
+
+      .day-media::after {
+        inset: 20% 39% 18% 43%;
+      }
+
+      .day-media .media-icon {
+        right: 16px;
+        bottom: 16px;
+        width: 58px;
+        height: 58px;
+        font-size: 1.45rem;
+      }
+
+      .day-body {
+        gap: 16px;
+      }
+
       .slot {
         grid-template-columns: 1fr;
         gap: 4px;
+        font-size: .96rem;
       }
 
       .day-heading {
         align-items: center;
+        gap: 12px;
+        padding-bottom: 14px;
+      }
+
+      .day-heading h3 {
+        font-size: 1.55rem;
+        line-height: 1.08;
       }
 
       .day-number {
         width: 42px;
         height: 42px;
+      }
+
+      .places {
+        gap: 8px;
+      }
+
+      .places span {
+        max-width: 100%;
+        padding: 7px 10px;
+        font-size: .88rem;
+        overflow-wrap: anywhere;
+      }
+
+      .sleep {
+        padding: 12px 13px;
+        font-size: .95rem;
+      }
+
+      .option {
+        min-height: 230px;
+      }
+
+      .option div {
+        padding: 18px;
+      }
+
+      .option h3 {
+        font-size: 1.28rem;
+        line-height: 1.12;
+      }
+
+      .ending {
+        min-height: 46svh;
+      }
+
+      .ending div {
+        width: min(100% - 24px, 420px);
+      }
+
+      .ending h2 {
+        font-size: 3.35rem;
+      }
+
+      .ending p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      h1 {
+        font-size: 2.85rem;
+      }
+
+      h2 {
+        font-size: 1.86rem;
+      }
+
+      .day-heading h3 {
+        font-size: 1.38rem;
+      }
+
+      .airport {
+        font-size: 2.05rem;
+      }
+
+      .day-media,
+      .flight-hero {
+        min-height: 190px;
       }
     }
   </style>
@@ -532,8 +901,8 @@
       <p>Anada i tornada Barcelona - Fuerteventura, amb pressupost base i equipatge inclòs al planning.</p>
     </div>
     <div class="flight-grid">
-      <div class="panel flight-hero">
-        <img src="assets/pdf-images/p03-01.png" alt="Avió de Vueling volant sobre núvols">
+      <div class="panel flight-hero" aria-label="Dibuix d'un avió volant cap a Fuerteventura">
+        <span class="visual-label">BCN → FUE</span>
       </div>
       <div class="panel">
         <div class="panel-content">
@@ -577,10 +946,8 @@
 
     <div class="days">
       <article class="day-card">
-        <div class="day-media">
-          <img src="assets/pdf-images/p04-02.png" alt="Ruta de Puerto del Rosario a Corralejo">
-          <img src="assets/pdf-images/p04-01.png" alt="Camper vintage">
-          <img src="assets/pdf-images/p04-03.png" alt="Aparcament prop de Corralejo">
+        <div class="day-media coast" aria-label="Dibuix de ruta pel nord de Fuerteventura">
+          <span class="media-icon">1</span>
         </div>
         <div class="day-body">
           <div class="day-heading"><h3>Puerto del Rosario i Corralejo</h3><span class="day-number">1</span></div>
@@ -597,10 +964,8 @@
       </article>
 
       <article class="day-card">
-        <div class="day-media">
-          <img src="assets/pdf-images/p05-01.png" alt="Mapa cap a El Cotillo">
-          <img src="assets/pdf-images/p05-02.png" alt="Faro del Tostón">
-          <img src="assets/pdf-images/p05-03.png" alt="Playa de La Concha">
+        <div class="day-media coast" aria-label="Dibuix de costa i far a El Cotillo">
+          <span class="media-icon">2</span>
         </div>
         <div class="day-body">
           <div class="day-heading"><h3>El Cotillo</h3><span class="day-number">2</span></div>
@@ -616,10 +981,8 @@
       </article>
 
       <article class="day-card">
-        <div class="day-media">
-          <img src="assets/pdf-images/p06-04.png" alt="Mapa de La Oliva a Betancuria">
-          <img src="assets/pdf-images/p06-02.png" alt="Castillo del Tostón">
-          <img src="assets/pdf-images/p06-03.png" alt="Betancuria">
+        <div class="day-media mountains" aria-label="Dibuix d'interior i muntanyes cap a Betancuria">
+          <span class="media-icon">3</span>
         </div>
         <div class="day-body">
           <div class="day-heading"><h3>La Oliva i Betancuria</h3><span class="day-number">3</span></div>
@@ -635,10 +998,8 @@
       </article>
 
       <article class="day-card">
-        <div class="day-media">
-          <img src="assets/pdf-images/p07-04.png" alt="Mapa d'Ajuy a Costa Calma">
-          <img src="assets/pdf-images/p07-01.png" alt="Coves d'Ajuy">
-          <img src="assets/pdf-images/p07-03.png" alt="Platja d'Ajuy">
+        <div class="day-media caves" aria-label="Dibuix de coves i platja d'Ajuy">
+          <span class="media-icon">4</span>
         </div>
         <div class="day-body">
           <div class="day-heading"><h3>Ajuy i Costa Calma</h3><span class="day-number">4</span></div>
@@ -654,10 +1015,8 @@
       </article>
 
       <article class="day-card">
-        <div class="day-media">
-          <img src="assets/pdf-images/p08-01.png" alt="Mapa de Jandía i Morro Jable">
-          <img src="assets/pdf-images/p08-02.png" alt="Platja de Cofete">
-          <img src="assets/pdf-images/p08-03.png" alt="Morro Jable">
+        <div class="day-media south" aria-label="Dibuix de Jandía i Morro Jable">
+          <span class="media-icon">5</span>
         </div>
         <div class="day-body">
           <div class="day-heading"><h3>Jandía i Morro Jable</h3><span class="day-number">5</span></div>
@@ -673,10 +1032,8 @@
       </article>
 
       <article class="day-card">
-        <div class="day-media">
-          <img src="assets/pdf-images/p09-01.png" alt="Mapa de La Pared i Tuineje">
-          <img src="assets/pdf-images/p09-02.png" alt="Gran Tarajal">
-          <img src="assets/pdf-images/p09-03.png" alt="Platges de La Pared">
+        <div class="day-media sunset" aria-label="Dibuix de La Pared, Tuineje i posta de sol">
+          <span class="media-icon">6</span>
         </div>
         <div class="day-body">
           <div class="day-heading"><h3>La Pared i Tuineje</h3><span class="day-number">6</span></div>
@@ -699,16 +1056,13 @@
       <p>Opcions obertes del planning per allargar la ruta abans de tornar a Puerto del Rosario.</p>
     </div>
     <div class="options">
-      <article class="option">
-        <img src="assets/pdf-images/p10-01.png" alt="Isla de Lobos">
+      <article class="option lobos">
         <div><small>Opció 1</small><h3>Allargar un dia fent una excursió a Isla de Lobos</h3></div>
       </article>
-      <article class="option">
-        <img src="assets/pdf-images/p10-03.png" alt="Lanzarote">
+      <article class="option lanzarote">
         <div><small>Opció 2</small><h3>Anar tres dies a Lanzarote</h3></div>
       </article>
-      <article class="option">
-        <img src="assets/pdf-images/p10-02.png" alt="Tindaya">
+      <article class="option tindaya">
         <div><small>Opció 3</small><h3>Tindaya</h3></div>
       </article>
     </div>
@@ -720,10 +1074,8 @@
       <p>Últim dia abans del vol de tornada de la nit.</p>
     </div>
     <article class="day-card">
-      <div class="day-media">
-        <img src="assets/pdf-images/p11-01.png" alt="Mapa de tornada a Puerto del Rosario">
-        <img src="assets/pdf-images/p03-02.png" alt="Mapa de Fuerteventura">
-        <img src="assets/pdf-images/p08-04.png" alt="Far de Punta Jandía">
+      <div class="day-media coast" aria-label="Dibuix de tornada cap a Puerto del Rosario">
+        <span class="media-icon">10</span>
       </div>
       <div class="day-body">
         <div class="day-heading"><h3>Tornar cap a Puerto del Rosario</h3><span class="day-number">10</span></div>
